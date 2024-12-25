@@ -21,7 +21,10 @@
     <main class="main">
         {{- block "main" . }}{{ end }}
     </main>
+    <!-- 仅在首页时才显示该footer.html -->
+     {{- if eq .Kind "home" -}}
     {{ partialCached "footer.html" . .Layout .Kind (.Param "hideFooter") (.Param "ShowCodeCopyButtons") -}}
+    {{- end -}}
 </body>
 
 </html>

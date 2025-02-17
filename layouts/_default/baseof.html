@@ -23,6 +23,8 @@
     </main>
     <!-- 仅在首页时才显示该footer.html -->
      {{- if eq .Kind "home" -}}
+    {{ partialCached "footer_home.html" . .Layout .Kind (.Param "hideFooter") (.Param "ShowCodeCopyButtons") -}}
+    {{- else -}}
     {{ partialCached "footer.html" . .Layout .Kind (.Param "hideFooter") (.Param "ShowCodeCopyButtons") -}}
     {{- end -}}
 </body>
